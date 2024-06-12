@@ -1,0 +1,12 @@
+:root {
+    --text-primary: #EC1F25;
+    --text-sec: #595959;
+    --text-terc: #d2d2d2;
+    --button-confirm: #1FAEFF;
+    --button-confirm-hover: #1b93d8;
+    --button-hover: #c4171c;
+    --border-color: #a9a9a9;
+    --focus-shadow-color: rgba(0, 123, 255, 0.25);
+    --select-color: #B3E5FC;
+    --cor-teste: #ff0000;
+}

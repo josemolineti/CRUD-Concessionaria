@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global-style.css">
+    <link rel="stylesheet" href="/css/catalgo-style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mitr:wght@600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+        <title>Catálogo de Carros</title>
+    </head>
+    
+    <body>
+        <header id="header-catalog">
+            <h1 id="page-title">Estoque de Carros</h1>
+            <button onclick="redirectAddCar()">Adicionar Carro <span>➕</span></button>
+        </header>
+        <main>
+            <section id="car-boxes">
+                <!-- Aqui serão exibidas as caixas de carro -->
+            </section>
+        </main>
+        <script type="module" src="./js/catalogo-load.js" th:src="@{js/catalogo-load.js}"></script>
+    
+        <script>
+            function redirectAddCar() {
+                console.log('Botão Adicionar Carro clicado!');
+                window.location.href = '/redirect/add-new-car';
+            }
+        </script>
+    </body>
+    
+    </html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global-style.css">
+    <link rel="stylesheet" href="/css/car-informations.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mitr:wght@600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title th:text="${carro.marca} + ' ' + ${carro.modelo}"></title>
+</head>
+
+<body>
+    <section id="car-image" style="text-align: center;">
+        <img src="../images/car-models/preto-car-example.png" alt="Exemplo de Imagem de Carro" id="img-model">
+    </section>
+    <section id="car-details-box">
+        <section id="info-superior-div">
+            <div>
+                <h1 id="marca" th:text="${carro.marca.toUpperCase()}"><span id="span-brand"></h1>
+                <span id="modelo" class="span-principal" th:text="${carro.modelo.toUpperCase()}"></span>
+            </div>
+            <div id="preco">
+                <p th:text="${carro.precoFormatado}"><span>💸</span></p>
+            </div>
+        </section>
+        <hr>
+        <section id="info-descricao-div">
+            <div id="info-descricao-column-1" class="info-descricao">
+                <div id="ano_modelo-div" class="component-descricao">
+                    <h2 class="label-descricao">Ano Fab/Modelo <span>📅</span></h2>
+                    <span id="ano_modelo-value" class="span-secundaria" th:text="${carro.ano_modelo}"></span>
+                </div>
+                <div id="cor-div" class="component-descricao">
+                    <h2 class="label-descricao">Cor <span>🎨</span></h2>
+                    <span id="cor-value" class="span-secundaria" th:text="${carro.cor}"></span>
+                </div>
+                <div id="carroceria-div" class="component-descricao">
+                    <h2 class="label-descricao">Carroceria <span>🚗</span></h2>
+                    <span id="carroceria-div" class="span-secundaria" th:text="${carro.carroceria}"></span>
+                </div>
+                <div id="motor-div" class="component-descricao">
+                    <h2 class="label-descricao">Motor <span>⚙️</span></h2>
+                    <span id="motor-div" class="span-secundaria" th:text="${carro.motor}"></span>
+                </div>
+            </div>
+            </div>
+
+            <div id="info-descricao-column-2" class="info-descricao">
+                <div id="quilometragem-div" class="component-descricao">
+                    <h2 class="label-descricao">KM <span>🚗💨</span></h2>
+                    <span id="quilometragem-value" class="span-secundaria"
+                        th:text="${carro.quilometragemFormatada}"></span>
+                </div>
+                <div id="cambio-div" class="component-descricao">
+                    <h2 class="label-descricao">Câmbio <span>🔧</span></h2>
+                    <span id="cambio-value" class="span-secundaria" th:text="${carro.cambio}"></span>
+                </div>
+                <div id="direcao-div" class="component-descricao">
+                    <h2 class="label-descricao">Direção <span>🛞</span></h2>
+                    <span id="direcao-div" class="span-secundaria" th:text="${carro.direcao}"></span>
+                </div>
+                <div id="portas-div" class="component-descricao">
+                    <h2 class="label-descricao">Portas <span>🚪</span></h2>
+                    <span id="portas-div" class="span-secundaria" th:text="${carro.portas}"></span>
+                </div>
+
+            </div>
+            <div id="info-descricao-column-3" class="info-descricao">
+                <div id="combustivel-div" class="component-descricao">
+                    <h2 class="label-descricao">Combustível <span>⛽</span></h2>
+                    <span id="combustivel-value" class="span-secundaria" th:text="${carro.combustivel}"></span>
+                </div>
+                <div id="placa-div" class="component-descricao">
+                    <h2 class="label-descricao">Final PLaca <span>🪧</span></h2>
+                    <span id="placa-value" class="span-secundaria" th:text="${carro.finalPlaca}"></span>
+                </div>
+                <div id="direcao-div" class="component-descricao">
+                    <h2 class="label-descricao">Procedência <span>👍</span></h2>
+                    <span id="direcao-div" class="span-secundaria">Leilão</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="opcionais-div">
+            
+        </section>
+
+        <section class="action-buttons">
+            <button>Editar Carro ✍️</button>
+            <button>Registrar Serviço ✍️</button>
+            <button>Registrar Manutenção ✍️</button>
+        </section>
+
+    </section>
+
+</body>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var carroMap = /*[[${carro}]]*/ {};
+
+    function createOpcionais() {
+        const imgCarro = document.getElementById("img-model");
+        imgCarro.src = 'images/car-models/' + carroMap['cor'].toLowerCase() + '-car-example.png';
+
+        const container = document.getElementById('opcionais-div');
+        const emojiTrue = "✅";
+        container.innerHTML = '';
+        const labelOpcionais = document.createElement('h2');
+        labelOpcionais.id = 'label-opcionais';
+        labelOpcionais.textContent = '📋 Opcionais'
+        container.appendChild(labelOpcionais);
+
+        Object.keys(carroMap).forEach(function (chave) {
+            if (carroMap[chave] === 1 && typeof carroMap[chave] === 'number' && chave != 'id' && chave != 'id_carro') {
+                const newDiv = document.createElement('div');
+                const newLabel = document.createElement('h2');
+                const newSpan = document.createElement('span');
+                const labelTexto = chave.replace(/_/g, ' ');
+                newLabel.textContent = labelTexto;
+                newSpan.textContent = emojiTrue;
+                newDiv.appendChild(newSpan);
+                newDiv.appendChild(newLabel);
+                
+                newDiv.classList.add("component-opcionais");
+                container.appendChild(newDiv);
+            }
+        });
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', createOpcionais);
+
+    /*]]>*/
+</script>
+
+
+</html>

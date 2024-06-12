@@ -1,0 +1,119 @@
+@import url('colors.css');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+h1 {
+    font-weight: bolder;
+    font-style: italic;
+    color: var(--text-primary);
+    font-size: 3vw;
+}
+
+span {
+    font-weight: bolder;
+    font-size: 1.3vw;
+}
+
+.span-principal {
+    color: var(--text-terc);
+}
+
+.span-secundaria {
+    color: var(--text-sec);
+}
+
+h2 {
+    color: var(--text-primary);
+    font-size: 1.3vw;
+}
+
+
+
+hr {
+    background-color: var(--text-primary);
+    height: 1.5px;
+    margin: 3vw;
+    border: none;
+}
+
+button {
+    background-color: var(--text-primary);
+    color: white;
+    border: solid 1px var(--text-sec);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease-in-out;
+    width: 12vw;
+    height: 3vw;
+    border-radius: 1vw;
+    font-size: 0.9vw;
+    font-weight: bolder;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transition: 0.3s;
+    cursor: pointer;
+
+}
+
+#button-confirm {
+    background-color: var(--button-confirm);
+}
+#button-confirm:hover {
+    background-color: var(--button-confirm-hover);
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    gap: 2vw;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .responsive-text {
+        font-size: 4vw;
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .responsive-text {
+        font-size: 1.5vw;
+    }
+}
+
+::selection {
+    background: var(--select-color); /* Cor de fundo do texto selecionado */
+    color: #ffffff;      /* Cor do texto selecionado */
+}
+
+::-moz-selection {      /* Para compatibilidade com o Firefox */
+    background: var(--button-confirm);
+    color: #ffffff;
+}

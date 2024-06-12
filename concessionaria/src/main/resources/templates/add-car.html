@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global-style.css">
+    <link rel="stylesheet" href="/css/add-car.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mitr:wght@600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>Adicionar Veículo</title>
+</head>
+
+<body>
+    <header id="header-sup">
+        <h1 id="title-add-car">Adicionar Veículo</h1>
+    </header>
+    <main>
+        <form action="/add-new-car" method="post">
+            <section>
+                <div class="div-form">
+                    <label for="modelo">Modelo</label>
+                    <input type="text" placeholder="Hylux" id="modelo" name="modelo" required>
+                    <label for="ano_modelo">Ano/Modelo</label>
+                    <input type="text" placeholder="AAAA/AAAA" id="ano_modelo" name="ano_modelo" required>
+
+                    <label for="select-cor">Cor</label>
+                    <select name="cor" id="select-cor" required>
+                        <option value="" disabled selected hidden>Escolha um carro</option>
+                        <option th:each="cor : ${corCarro}" th:value="${cor}" th:text="${cor}"></option>
+                    </select>
+
+                    <label for="quilometragem">Quilometragem</label>
+                    <input type="number" placeholder="100.000" id="Quilometragem" name="quilometragem" min="0" required>
+
+                    <label for="marchas">Marchas</label>
+                    <input type="number" placeholder="5" id="marchas" name="marchas" required min="4" max="10">
+
+                    <label for="chassi">Chassi</label>
+                    <input type="text" placeholder="3VWFE21C04M000001" id="chassi" name="chassi" required maxlength="17"
+                        minlength="17">
+                </div>
+                <div class="div-form">
+                    <label for="preco">Preço</label>
+                    <input type="text" id="preco" name="preco" placeholder="R$ 0,00">
+
+                    <label for="select-marca">Marca</label>
+                    <select name="marca" id="select-marca" required>
+                        <option value="" disabled selected hidden>Escolha uma marca</option>
+                        <option th:each="marca : ${marcaCarro}" th:value="${marca}" th:text="${marca}"></option>
+                    </select>
+
+                    <label for="motor">Motor</label>
+                    <input type="text" placeholder="2.0" id="motor" name="motor" required>
+
+                    <label for="select-direcao">Direção</label>
+                    <select name="direcao" id="select-direcao" required>
+                        <option value="" disabled selected hidden>Tipo de Direção</option>
+                        <option th:each="direcao : ${tipoDirecao}" th:value="${direcao}" th:text="${direcao}"></option>
+                    </select>
+
+                    <label for="select-combustivel">Combustível</label>
+                    <select name="combustivel" id="select-combustivel" required>
+                        <option value="" disabled selected hidden>Tipo Combustível</option>
+                        <option th:each="combustivel : ${tipoCombustivel}" th:value="${combustivel}" th:text="${combustivel}"></option>
+                    </select>
+
+                    <label for="placa">Placa</label>
+                    <input type="text" placeholder="AAA1B22" id="placa" name="placa" required maxlength="7"
+                        minlength="7">
+                </div>
+                <div class="div-form">
+                    <label for="select-carroceria">Carroceria</label>
+                    <select name="carroceria" id="select-carroceria" required>
+                        <option value="" disabled selected hidden>Escolha a Carroceria</option>
+                        <option th:each="carroceria : ${tipoCarroceria}" th:value="${carroceria}" th:text="${carroceria}"></option>
+                    </select>
+                    <label for="select-cambio">Câmbio</label>
+                    <select name="cambio" id="select-cambio" required>
+                        <option value="" disabled selected hidden>Escolha o Câmbio</option>
+                        <option th:each="cambio : ${tiposCambio}" th:value="${cambio}" th:text="${cambio}"></option>
+                    </select>
+
+                    <label for="portas">Qtd Portas</label>
+                    <input type="number" placeholder="4" id="portas" name="portas" required>
+
+                    <label for="select-tracao">Tração</label>
+                    <select name="tracao" id="select-tracao" required>
+                        <option value="" disabled selected hidden>Escolha a Tração</option>
+                        <option th:each="tracao : ${tipoTracao}" th:value="${tracao}" th:text="${tracao}"></option>
+                    </select>
+
+                    <label for="procedencia">Procedência</label>
+                    <input type="text" placeholder="Leilão, Sinistro, N/A etc..." id="procedencia" name="procedencia">
+                </div>
+            </section>
+
+            <section class="action-buttons">
+                <button type="button">Cancelar</button>
+                <button type="submit" id="button-confirm">Avançar</button>
+            </section>
+        </form>
+    </main>
+    <script src="/js/insert-script.js"></script>
+</body>
+
+</html>

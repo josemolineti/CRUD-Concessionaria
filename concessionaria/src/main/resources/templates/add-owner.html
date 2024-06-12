@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/global-style.css">
+    <link rel="stylesheet" href="/css/add-car.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mitr:wght@600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>Adicionar Proprietário</title>
+</head>
+
+<body>
+    <header id="header-sup">
+        <h1 id="title-add-car">Adicionar Proprietário</h1>
+    </header>
+    <form th:action="@{/add-owner}" th:object="${proprietario}" method="post">
+        <div class="div-form">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" th:field="*{nome}" placeholder="João da Silva" required>
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" th:field="*{cpf}" placeholder="999.999.999-99" required>
+            <label for="rg">RG</label>
+            <input type="text" id="rg" th:field="*{rg}" placeholder="99.999.999-0" required>
+            <label for="dataDeNascimento">Nascimento</label>
+            <input type="date" id="dataDeNascimento" th:field="*{dataDeNascimento}" required>
+            <label for="numero">Telefone</label>
+            <input type="text" id="numero" th:field="*{numero}" placeholder="99.999.999-0" required>
+
+        </div>
+        <section class="action-buttons">
+            <button type="button">Voltar</button>
+            <button type="submit" id="button-confirm">Avançar</button>
+        </section>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+@import url('colors.css');
+h1 {
+    margin-top: 3vw;
+}
+
+main {
+    margin: 8vw;
+}
+
+#car-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vw;
+    justify-content: space-between;
+}
+
+.car-box {
+    display: flex;
+    flex-direction: row;
+    width: 25vw;
+    height: 12vw;
+    border: 0.2vw solid var(--text-sec);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.car-box div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-box div img {
+    width: 10vw;
+    height: 10vw;
+
+}
+
+#info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: 0.8vw;
+}
+
+#sup-model {
+    flex-direction: column;
+    align-items: start;
+}
+
+#sup-model span {
+    font-size: 1vw;
+}
+
+#sup-model h2 {
+    font-size: 1.2vw;
+
+}
+
+#mid-box {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    border-top: 0.1vw solid var(--text-primary);
+    margin-top: 2vw;
+
+}
+
+#mid-box #left {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+#mid-box #left span {
+    font-size: 0.8vw;
+
+}
+
+#mid-box #right {
+    align-content: center;
+}
+
+#mid-box #right h2 {
+    font-size: 1.3vw;
+    width: 6vw;
+    text-align: right;
+
+}
+#marca-pequena {
+    width: 1.5vw;
+    height: 1.5vw;
+    
+}
+
+#sup-model {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5vw;
+}
+#sup-model-img {
+    margin-top: 0.5vw;
+    margin-bottom: -1.8vw;
+}
+
+#sup-model-text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex: 1;
+}
+
+#preco-label {
+    background-color: var(--text-primary);
+    color: white;
+    padding: 0.5vw 0.5vw 0.5vw 6vw;
+    margin-left: -6vw;
+    position: relative; /* Para permitir o uso de position: absolute dentro */
+    display: flex;
+    align-items: center;
+
+}
+
+#preco-label span {
+    font-size: 1vw;
+    font-weight: bolder;
+    margin-right: 8vw; /**/
+    margin-left: -3vw;
+      
+    
+}
+
+#button-mais {
+    border: 1px solid var(--text-primary);
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 8vw;
+    border-radius: 0px;
+    padding: 0 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-primary);
+    font-size: 1vw;
+    box-shadow: 0 0;
+}
+#button-mais:hover {
+    color: white;
+    background-color: var(--text-primary);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+.car-box>div:first-child {
+    border-right: solid 0.2vw var(--text-sec);
+}
+
+#header-catalog  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    gap: 4vw;
+}

@@ -1,0 +1,80 @@
+@import url('colors.css');
+#info-superior-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3vw;
+}
+
+#opcionais-div {
+
+    margin: 5vw;
+    margin-top: -5vw;
+    margin-bottom: 6vw;
+}
+
+.component-opcionais {
+    display: flex;
+    flex-direction: row;
+    margin-right: 1vw;
+    margin-bottom: 1vw;
+
+
+}
+
+#label-opcionais {
+    margin-left: -2vw;
+    margin-top: -5vw;
+    margin-bottom: 3vw;
+    font-weight: bolder;
+}
+
+.info-descricao {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5vw;
+}
+
+.component-descricao {
+    margin-bottom: 5vw;
+}
+
+#preco {
+    color: white;
+    background-color: var(--text-primary);
+    padding: 1.2vw;
+    border-radius: 2vw;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#info-descricao-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5vw;
+
+}
+
+#car-details-box {
+    width: 50vw;
+    height: 500vh;
+    border: 2px solid var(--text-primary);
+    border-radius: 0.5vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+}
+
+
+#marca-grande {
+    width:4vw;
+    height: 3vw;
+}
+
+#span-brand {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    margin-left: 1vw;
+}
