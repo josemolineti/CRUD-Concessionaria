@@ -86,12 +86,12 @@
         </section>
 
         <section id="opcionais-div">
-            
+
         </section>
 
         <section class="action-buttons">
-            <button>Editar Carro ✍️</button>
-            <button>Registrar Serviço ✍️</button>
+            <button onclick="redirectUpdateCar()">Editar Carro ✍️</button>
+            <button onclick="redirectUpdateProprietario()">Editar Proprietário ✍️</button>
             <button>Registrar Manutenção ✍️</button>
         </section>
 
@@ -124,14 +124,40 @@
                 newSpan.textContent = emojiTrue;
                 newDiv.appendChild(newSpan);
                 newDiv.appendChild(newLabel);
-                
+
                 newDiv.classList.add("component-opcionais");
                 container.appendChild(newDiv);
             }
         });
     }
 
-    
+    function redirectUpdateCar() {
+        // Captura a URL atual
+        const currentUrl = new URL(window.location.href);
+        // Captura o valor do parâmetro 'carId'
+        const carId = currentUrl.searchParams.get('carId');
+        // Redireciona para a nova página com o mesmo parâmetro 'carId'
+        if (carId) {
+            window.location.href = `/edit-car?carId=${carId}`;
+        } else {
+            window.location.href = '/catalogo';
+        }
+    }
+
+    function redirectUpdateProprietario() {
+        const currentUrl = new URL(window.location.href);
+        // Captura o valor do parâmetro 'carId'
+        const carId = currentUrl.searchParams.get('carId');
+        // Redireciona para a nova página com o mesmo parâmetro 'carId'
+        if (carId) {
+            window.location.href = `/edit-proprietario?carId=${carId}`;
+        } else {
+            window.location.href = '/catalogo';
+        }
+    }
+
+
+
     document.addEventListener('DOMContentLoaded', createOpcionais);
 
     /*]]>*/

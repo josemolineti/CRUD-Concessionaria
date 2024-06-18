@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -16,24 +16,63 @@
     <header id="header-sup">
         <h1 id="title-add-car">Endereço do Proprietário</h1>
     </header>
-    <form action method="post" <label for="nome">Logadouro</label>
-        <input type="text" id="logadouro" th:field="*{logadouro}" placeholder="Rua das Laranjas" required>
-        <label for="nome">Cidade</label>
-        <input type="text" id="cidade" th:field="*{cidade}" placeholder="Cascavel" required>
-        <label for="nome">CEP</label>
-        <input type="text" id="cep" th:field="*{cep}" placeholder="00000-000" required>
-        <label for="nome">Número</label>
-        <input type="number" id="numero" th:field="*{numero}" placeholder="99" required>
-        <label for="select-cor">Cor</label>
-        <select name="estado" id="select-estado" required>
-            <option value="" disabled selected hidden>Selecione o Estado</option>
-            <option th:each="cor : ${corCarro}" th:value="${cor}" th:text="${cor}"></option>
-        </select>
-        <select name="pais" id="select-pais" required>
-            <option value="" disabled selected hidden>Selecione o País</option>
-            <option th:each="cor : ${corCarro}" th:value="${cor}" th:text="${cor}"></option>
-        </select>
+    <form th:action="@{/endereco-owner}" th:object="${endereco}" method="post">
+        <div class="div-form">
+            <label for="logradouro">Logradouro</label>
+            <input type="text" id="logradouro" th:field="*{logradouro}" placeholder="Rua das Laranjas" required>
+        </div>
+        <div class="div-form">
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" th:field="*{numero}" placeholder="123" required>
+        </div>
+        <div class="div-form">
+            <label for="estado">Estado:</label>
+            <select name="estado" id="select-estado" th:field="*{estadoId}" required>
+                <option value="" disabled selected hidden>Selecione o Estado</option>
+                <option value="1">Acre</option>
+                <option value="2">Alagoas</option>
+                <option value="3">Amapá</option>
+                <option value="4">Amazonas</option>
+                <option value="5">Bahia</option>
+                <option value="6">Ceará</option>
+                <option value="7">Espírito Santo</option>
+                <option value="8">Goiás</option>
+                <option value="9">Maranhão</option>
+                <option value="10">Mato Grosso</option>
+                <option value="11">Mato Grosso do Sul</option>
+                <option value="12">Minas Gerais</option>
+                <option value="13">Pará</option>
+                <option value="14">Paraíba</option>
+                <option value="15">Paraná</option>
+                <option value="16">Pernambuco</option>
+                <option value="17">Piauí</option>
+                <option value="18">Rio de Janeiro</option>
+                <option value="19">Rio Grande do Norte</option>
+                <option value="20">Rio Grande do Sul</option>
+                <option value="21">Rondônia</option>
+                <option value="22">Roraima</option>
+                <option value="23">Santa Catarina</option>
+                <option value="24">São Paulo</option>
+                <option value="25">Sergipe</option>
+                <option value="26">Tocantins</option>
+            </select>
+            
+        </div>
+        <div class="div-form">
+            <label for="nomeCidade">Cidade:</label>
+            <input type="text" id="nomeCidade" th:field="*{nomeCidade}" placeholder="Cascavel" required>
+        </div>
+        <div class="div-form">
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" th:field="*{cep}" placeholder="12345-678" required>
+        </div>
+        <section class="action-buttons">
+            <button type="button" onclick="history.back()">Voltar</button>
+            <button type="submit" id="button-confirm">Cadastrar</button>
+        </section>
     </form>
+
+
 </body>
 
 </html>

@@ -6,23 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fag.concessionaria.interfaces.SaveInterface;
-import com.fag.concessionaria.model.Carro;
-import com.fag.concessionaria.repository.CarroRepository;
+import com.fag.concessionaria.model.Endereco;
+import com.fag.concessionaria.repository.EnderecoRepository;
 
 @Service
-public class CarroService implements SaveInterface<Carro> {
+public class EnderecoService implements SaveInterface<Endereco>{
 
     @Autowired
-    private CarroRepository carroRepository;
+    private EnderecoRepository enderecoRepository;
 
     @Override
-    public void save(Carro carro) {
-        carroRepository.save(carro);
+    public void save(Endereco endereco) {
+        enderecoRepository.save(endereco);
     }
 
     @Override
-    public void update(Carro carro, Long id) {
-        carroRepository.update(carro, id);
+    public void update(Endereco endereco, Long id) {
+        enderecoRepository.update(endereco, id);
     }
 
     @Override
@@ -30,6 +30,4 @@ public class CarroService implements SaveInterface<Carro> {
         // implementação do método findById
         return null;
     }
-
-
 }

@@ -1,9 +1,11 @@
 @import url('colors.css');
+
 #header-sup {
     background-color: var(--text-primary);
     width: 100vw;
-    height: 5vw;    
+    height: 5vw;
 }
+
 #title-add-car {
     margin: 1.5vw;
     margin-top: 1.3vw;
@@ -11,6 +13,11 @@
     font-size: 2vw;
     align-items: center;
     justify-content: center;
+}
+
+.label-h2 {
+    margin-top: 5vw;
+    margin-bottom: -1vw;
 }
 
 form section {
@@ -24,13 +31,15 @@ form section {
     display: flex;
     flex-direction: column;
 }
+
 label {
     color: var(--text-primary);
     font-size: 1.2vw;
     font-weight: bold;
 }
 
-.div-form input, .div-form select {
+.div-form input,
+.div-form select {
     width: 13vw;
     padding: 0.5vw;
     background-color: var(--text-terc);
@@ -42,16 +51,17 @@ label {
     margin-bottom: 1vw;
 }
 
-.div-form input:focus, .div-form select:focus {
+.div-form input:focus,
+.div-form select:focus {
     border-color: var(--button-confirm);
     box-shadow: 0 0 4px var(--button-confirm-hover);
     outline: none;
-    
+
 }
 
 .div-form select option {
-    background-color: var(--text-terc); 
-    color: var(--cor-teste); 
+    background-color: var(--text-terc);
+    color: var(--cor-teste);
     font-weight: bold;
     border-bottom: 1px solid var(--border-color);
 }
@@ -64,4 +74,17 @@ label {
 .div-form select option:hover {
     background-color: red;
     color: yellow;
+}
+
+#sect-opcionais {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2vw;
+}
+
+.input_checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    accent-color: #4CAF50; /* Cor do checkbox quando marcado */
 }

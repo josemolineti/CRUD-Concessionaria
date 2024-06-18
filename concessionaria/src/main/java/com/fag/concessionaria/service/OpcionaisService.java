@@ -7,22 +7,22 @@ import org.springframework.stereotype.Service;
 
 import com.fag.concessionaria.interfaces.SaveInterface;
 import com.fag.concessionaria.model.Carro;
-import com.fag.concessionaria.repository.CarroRepository;
+import com.fag.concessionaria.repository.OpcionaisRepository;
 
 @Service
-public class CarroService implements SaveInterface<Carro> {
+public class OpcionaisService implements SaveInterface<Carro> {
 
     @Autowired
-    private CarroRepository carroRepository;
+    private OpcionaisRepository opcionaisRepository;
 
     @Override
     public void save(Carro carro) {
-        carroRepository.save(carro);
+        opcionaisRepository.save(carro);
     }
 
     @Override
     public void update(Carro carro, Long id) {
-        carroRepository.update(carro, id);
+        opcionaisRepository.update(carro, id);
     }
 
     @Override

@@ -11,6 +11,7 @@ public class ConcessionariaApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(ConcessionariaApplication.class, args);
+		context.getEnvironment();
 		
 	}
 

@@ -4,15 +4,9 @@ import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
-@Entity
+
 public class Proprietario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String cpf;
@@ -20,7 +14,14 @@ public class Proprietario {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataDeNascimento;
     private String numero;
+
     
+    
+    @Override
+    public String toString() {
+        return "Proprietario [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", dataDeNascimento="
+                + dataDeNascimento + ", numero=" + numero + "]";
+    }
     public Long getId() {
         return id;
     }

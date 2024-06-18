@@ -2,7 +2,9 @@ package com.fag.concessionaria.enums;
 
 public enum TipoTracao {
     TRACAO_2X2("2x2"),
-    TRACAO_4X4("4x4");
+    TRACAO_4X4("4x4"),
+    Dianteira("Dianteira"),
+    Traseira("Traseira");
 
     private String value;
 

@@ -1,16 +1,7 @@
 package com.fag.concessionaria.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
 public class Carro {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String modelo;
     private String placa;
     private Double preco;
@@ -28,11 +19,34 @@ public class Carro {
     private String motor;
     private String marca;
     private String cambio;
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
+    //opcionais
+    private boolean pneus_novos;
+    private boolean chave_reserva;
+    private boolean manual;
+    private boolean periciado;
+    private boolean alarme;
+    private boolean ipva_pago;
+    private boolean camera_de_re;
+    private boolean sensor_de_re;
+    private boolean trava_eletrica;
+    private boolean vidro_eletrico;
+    private boolean ar_condicionado;
+    private boolean air_bag;
+    private boolean som;
+    
+    
+    
+    @Override
+    public String toString() {
+        return "Carro [id=" + id + ", modelo=" + modelo + ", placa=" + placa + ", preco=" + preco + ", quilometragem="
+                + quilometragem + ", cor=" + cor + ", ano_modelo=" + ano_modelo + ", direcao=" + direcao + ", marchas="
+                + marchas + ", carroceria=" + carroceria + ", tracao=" + tracao + ", portas=" + portas
+                + ", procedencia=" + procedencia + ", chassi=" + chassi + ", combustivel=" + combustivel + ", motor="
+                + motor + ", marca=" + marca + ", cambio=" + cambio + ", pneus_novos=" + pneus_novos
+                + ", chave_reserva=" + chave_reserva + ", manual=" + manual + ", periciado=" + periciado + ", alarme="
+                + alarme + ", ipva_pago=" + ipva_pago + ", camera_de_re=" + camera_de_re + ", sensor_de_re="
+                + sensor_de_re + ", trava_eletrica=" + trava_eletrica + ", vidro_eletrico=" + vidro_eletrico
+                + ", ar_condicionado=" + ar_condicionado + ", air_bag=" + air_bag + ", som=" + som + "]";
     }
     public String getModelo() {
         return modelo;
@@ -136,7 +150,91 @@ public class Carro {
     public void setCambio(String cambio) {
         this.cambio = cambio;
     }
+    public boolean isPneus_novos() {
+        return pneus_novos;
+    }
+    public void setPneus_novos(boolean pneus_novos) {
+        this.pneus_novos = pneus_novos;
+    }
+    public boolean isChave_reserva() {
+        return chave_reserva;
+    }
+    public void setChave_reserva(boolean chave_reserva) {
+        this.chave_reserva = chave_reserva;
+    }
+    public boolean isManual() {
+        return manual;
+    }
+    public void setManual(boolean manual) {
+        this.manual = manual;
+    }
+    public boolean isPericiado() {
+        return periciado;
+    }
+    public void setPericiado(boolean periciado) {
+        this.periciado = periciado;
+    }
+    public boolean isAlarme() {
+        return alarme;
+    }
+    public void setAlarme(boolean alarme) {
+        this.alarme = alarme;
+    }
+    public boolean isIpva_pago() {
+        return ipva_pago;
+    }
+    public void setIpva_pago(boolean ipva_pago) {
+        this.ipva_pago = ipva_pago;
+    }
+    public boolean isCamera_de_re() {
+        return camera_de_re;
+    }
+    public void setCamera_de_re(boolean camera_de_re) {
+        this.camera_de_re = camera_de_re;
+    }
+    public boolean isSensor_de_re() {
+        return sensor_de_re;
+    }
+    public void setSensor_de_re(boolean sensor_de_re) {
+        this.sensor_de_re = sensor_de_re;
+    }
+    public boolean isTrava_eletrica() {
+        return trava_eletrica;
+    }
+    public void setTrava_eletrica(boolean trava_eletrica) {
+        this.trava_eletrica = trava_eletrica;
+    }
+    public boolean isVidro_eletrico() {
+        return vidro_eletrico;
+    }
+    public void setVidro_eletrico(boolean vidro_eletrico) {
+        this.vidro_eletrico = vidro_eletrico;
+    }
+    public boolean isAr_condicionado() {
+        return ar_condicionado;
+    }
+    public void setAr_condicionado(boolean ar_condicionado) {
+        this.ar_condicionado = ar_condicionado;
+    }
+    public boolean isAir_bag() {
+        return air_bag;
+    }
+    public void setAir_bag(boolean air_bag) {
+        this.air_bag = air_bag;
+    }
+    public boolean isSom() {
+        return som;
+    }
+    public void setSom(boolean som) {
+        this.som = som;
+    }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     
-
+    
 }

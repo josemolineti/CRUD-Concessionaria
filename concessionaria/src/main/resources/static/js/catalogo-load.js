@@ -69,12 +69,12 @@ function createCarBox(carro) {
     const precoLabel = document.createElement('div');
     precoLabel.id = 'preco-label';
     var precoSpan = document.createElement('span');
-    precoSpan.textContent = "R$ "+carro['preco'].toLocaleString();
+    precoSpan.textContent = "R$ " + carro['preco'].toLocaleString();
     var buttonMais = document.createElement('button');
     buttonMais.id = 'button-mais';
     buttonMais.textContent = "Saiba Mais";
     buttonMais.value = carro['id'];
-    buttonMais.onclick = function() {
+    buttonMais.onclick = function () {
         window.location.href = './car-informations?carId=' + buttonMais.value;
         saibaMaisCarro(carro['id']);
     };
@@ -101,7 +101,7 @@ function listCarros() {
         })
         .then(carros => {
             carros.forEach(carro => {
-                createCarBox(carro);                
+                createCarBox(carro);
             });
 
         })
@@ -113,3 +113,8 @@ function listCarros() {
 document.addEventListener("DOMContentLoaded", () => {
     listCarros();
 });
+
+
+
+
+

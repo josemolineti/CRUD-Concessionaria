@@ -9,29 +9,29 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Mitr:wght@600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <title>Adicionar Proprietário</title>
+    <title>Editar Proprietário</title>
 </head>
 
 <body>
     <header id="header-sup">
-        <h1 id="title-add-car">Adicionar Proprietário</h1>
+        <h1 id="title-add-car">Editar Proprietário</h1>
     </header>
     <form th:action="@{/add-owner}" th:object="${proprietario}" method="post">
         <div class="div-form">
             <label for="nome">Nome Completo:</label>
-            <input type="text" id="nome" th:field="*{nome}" placeholder="João da Silva" required>
+            <input type="text" id="nome" th:field="*{nome}" placeholder="João da Silva" th:value="*{nome}" required>
 
             <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" th:field="*{cpf}" placeholder="123.456.789-00" required>
+            <input type="text" id="cpf" th:field="*{cpf}" placeholder="123.456.789-00" th:value="*{cpf}" required>
 
             <label for="rg">RG:</label>
-            <input type="text" id="rg" th:field="*{rg}" placeholder="12.345.678-90" required>
+            <input type="text" id="rg" th:field="*{rg}" placeholder="12.345.678-90" th:value="*{rg}" required>
 
             <label for="dataDeNascimento">Data de Nascimento:</label>
             <input type="date" id="dataDeNascimento" th:field="*{dataDeNascimento}" required>
 
             <label for="numero">Número:</label>
-            <input type="text" id="numero" th:field="*{numero}" placeholder="(99) 9 9999-9999" required>
+            <input type="text" id="numero" th:field="*{numero}" placeholder="(99) 9 9999-9999" th:value="*{numero}" required>
 
             <section class="action-buttons">
                 <button type="button" onclick="history.back()">Voltar</button>

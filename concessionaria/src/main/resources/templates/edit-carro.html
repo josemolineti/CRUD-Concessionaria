@@ -9,163 +9,168 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Mitr:wght@600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <title>Adicionar Veículo</title>
+    <title th:text="Editar + ' '+${carro.marca} + ' ' + ${carro.modelo}"></title>
 </head>
 
 <body>
     <header id="header-sup">
-        <h1 id="title-add-car">Adicionar Veículo</h1>
+        <h1 id="title-add-car" th:text="Editar + ' '+${carro.marca} + ' ' + ${carro.modelo}">Editar Veículo"</h1>
     </header>
     <main>
-        <form th:action="@{/add-new-car}" th:object="${carro}" method="post">
-            <!-- Campos do formulário para adicionar carro -->
+        <form th:action="@{/edit-car}" th:object="${carro}" method="post">
+            <!-- Campos do formulário para editar o carro -->
             <section>
                 <div class="div-form">
+                    <input type="hidden" name="carId" th:value="${carro.id}" />
                     <label for="modelo">Modelo</label>
-                    <input type="text" placeholder="Hilux" id="modelo" th:field="*{modelo}" required>
+                    <input type="text" placeholder="Hilux" id="modelo" name="modelo" th:value="*{modelo}" required>
                     <label for="ano_modelo">Ano/Modelo</label>
-                    <input type="text" placeholder="AAAA/AAAA" id="ano_modelo" th:field="*{ano_modelo}" required>
+                    <input type="text" placeholder="AAAA/AAAA" id="ano_modelo" name="ano_modelo" th:value="*{ano_modelo}" required>
                     <label for="select-cor">Cor</label>
-                    <select name="cor" id="select-cor" th:field="*{cor}" required>
-                        <option value="" disabled selected hidden>Escolha uma cor</option>
-                        <option th:each="cor : ${corCarro}" th:value="${cor}" th:text="${cor}"></option>
+                    <select name="cor" id="select-cor" required>
+                        <option value="" disabled hidden>Escolha uma cor</option>
+                        <option th:each="corOption : ${corCarro}" th:value="${corOption}" th:text="${corOption}"
+                            th:selected="${corOption.name() == carro.cor}"></option>
                     </select>
+
                     <label for="quilometragem">Quilometragem</label>
-                    <input type="number" placeholder="100.000" id="quilometragem" th:field="*{quilometragem}" min="0"
+                    <input type="number" placeholder="100.000" id="quilometragem" name="quilometragem" th:value="*{quilometragem}" min="0"
                         required>
                     <label for="marchas">Marchas</label>
-                    <input type="number" placeholder="5" id="marchas" th:field="*{marchas}" required min="4" max="10">
+                    <input type="number" placeholder="5" id="marchas" th:value="*{marchas}" name="marchas" required min="4" max="10">
                     <label for="chassi">Chassi</label>
-                    <input type="text" placeholder="3VWFE21C04M000001" id="chassi" th:field="*{chassi}" required
+                    <input type="text" placeholder="3VWFE21C04M000001" id="chassi" name="chassi" th:value="*{chassi}" required
                         maxlength="17" minlength="17">
                 </div>
                 <div class="div-form">
                     <label for="preco">Preço</label>
-                    <input type="text" id="preco" th:field="*{preco}" placeholder="R$ 0,00">
+                    <input type="text" id="preco" th:value="*{preco}" name="preco" placeholder="R$ 0,00">
                     <label for="select-marca">Marca</label>
-                    <select name="marca" id="select-marca" th:field="*{marca}" required>
-                        <option value="" disabled selected hidden>Escolha uma marca</option>
-                        <option th:each="marca : ${marcaCarro}" th:value="${marca}" th:text="${marca}"></option>
+                    <select name="marca" id="select-marca" required>
+                        <option value="" disabled hidden>Escolha uma marca</option>
+                        <option th:each="marca : ${marcaCarro}" th:value="${marca}" th:text="${marca}"
+                            th:selected="${marca.name() == carro.marca}"></option>
                     </select>
+
                     <label for="motor">Motor</label>
-                    <input type="text" placeholder="2.0" id="motor" th:field="*{motor}" required>
+                    <input type="text" placeholder="2.0" id="motor" name="motor" th:value="*{motor}" required>
                     <label for="select-direcao">Direção</label>
-                    <select name="direcao" id="select-direcao" th:field="*{direcao}" required>
-                        <option value="" disabled selected hidden>Tipo de Direção</option>
-                        <option th:each="direcao : ${tipoDirecao}" th:value="${direcao}" th:text="${direcao}"></option>
+                    <select name="direcao" id="select-direcao" required>
+                        <option value="" disabled hidden>Tipo de Direção</option>
+                        <option th:each="direcao : ${tipoDirecao}" th:value="${direcao}" th:text="${direcao}"
+                            th:selected="${direcao.name() == carro.direcao}"></option>
                     </select>
                     <label for="select-combustivel">Combustível</label>
-                    <select name="combustivel" id="select-combustivel" th:field="*{combustivel}" required>
-                        <option value="" disabled selected hidden>Tipo Combustível</option>
+                    <select name="combustivel" id="select-combustivel" required>
+                        <option value="" disabled hidden>Tipo Combustível</option>
                         <option th:each="combustivel : ${tipoCombustivel}" th:value="${combustivel}"
-                            th:text="${combustivel}"></option>
+                            th:text="${combustivel}" th:selected="${combustivel.name() == carro.combustivel}"></option>
                     </select>
                     <label for="placa">Placa</label>
-                    <input type="text" placeholder="AAA1B22" id="placa" th:field="*{placa}" required maxlength="7"
+                    <input type="text" placeholder="AAA1B22" id="placa" name="placa" th:value="*{placa}" required maxlength="7"
                         minlength="7">
                 </div>
                 <div class="div-form">
                     <label for="select-carroceria">Carroceria</label>
-                    <select name="carroceria" id="select-carroceria" th:field="*{carroceria}" required>
-                        <option value="" disabled selected hidden>Escolha a Carroceria</option>
+                    <select name="carroceria" id="select-carroceria" required>
+                        <option value="" disabled hidden>Escolha a Carroceria</option>
                         <option th:each="carroceria : ${tipoCarroceria}" th:value="${carroceria}"
-                            th:text="${carroceria}"></option>
+                            th:text="${carroceria}" th:selected="${carroceria.name() == carro.carroceria}"></option>
                     </select>
+
                     <label for="portas">Portas</label>
-                    <input type="number" placeholder="4" id="portas" th:field="*{portas}" required min="2" max="5">
+                    <input type="number" placeholder="4" id="portas" name="portas" th:value="*{portas}" required min="2" max="5">
                     <label for="select-cambio">Câmbio</label>
-                    <select name="cambio" id="select-cambio" th:field="*{cambio}" required>
-                        <option value="" disabled selected hidden>Escolha o Câmbio</option>
-                        <option th:each="cambio : ${tiposCambio}" th:value="${cambio}" th:text="${cambio}"></option>
+                    <select name="cambio" id="select-cambio" required>
+                        <option value="" disabled hidden>Escolha o Câmbio</option>
+                        <option th:each="cambio : ${tiposCambio}" th:value="${cambio}" th:text="${cambio}"
+                            th:selected="${cambio.name() == carro.cambio}"></option>
                     </select>
                     <label for="select-tracao">Tração</label>
-                    <select name="tracao" id="select-tracao" th:field="*{tracao}" required>
-                        <option value="" disabled selected hidden>Escolha a tração</option>
-                        <option th:each="tracao : ${tipoTracao}" th:value="${tracao}" th:text="${tracao}"></option>
+                    <select name="tracao" id="select-tracao" required>
+                        <option value="" disabled hidden>Escolha a tração</option>
+                        <option th:each="tracao : ${tipoTracao}" th:value="${tracao}" th:text="${tracao}"
+                            th:selected="${tracao.name() == carro.tracao}"></option>
                     </select>
                     <label for="procedencia">Procedência</label>
-                    <input type="text" placeholder="Leilão, N/A, Sinistro" id="procedencia" th:field="*{procedencia}"
+                    <input type="text" placeholder="Leilão, N/A, Sinistro" id="procedencia" name="procedencia" th:value="*{procedencia}"
                         required>
-
                 </div>
-
             </section>
             <h2 class="label-h2">Opcionais</h2>
+
             <section id="sect-opcionais">
                 <div>
                     <input type="checkbox" id="pneus_novos" class="input_checkbox" name="pneus_novos" value="true"
-                        th:field="*{pneus_novos}">
+                        th:checked="*{pneus_novos}">
                     <label for="pneus_novos">Pneus Novos</label>
                 </div>
                 <div>
                     <input type="checkbox" id="chave_reserva" class="input_checkbox" name="chave_reserva" value="true"
-                        th:field="*{chave_reserva}">
+                        th:checked="*{chave_reserva}">
                     <label for="chave_reserva">Chave Reserva</label>
                 </div>
                 <div>
                     <input type="checkbox" id="manual" class="input_checkbox" name="manual" value="true"
-                        th:field="*{manual}">
+                        th:checked="*{manual}">
                     <label for="manual">Manual</label>
                 </div>
                 <div>
                     <input type="checkbox" id="periciado" class="input_checkbox" name="periciado" value="true"
-                        th:field="*{periciado}">
+                        th:checked="*{periciado}">
                     <label for="periciado">Periciado</label>
                 </div>
                 <div>
                     <input type="checkbox" id="alarme" class="input_checkbox" name="alarme" value="true"
-                        th:field="*{alarme}">
+                        th:checked="*{alarme}">
                     <label for="alarme">Alarme</label>
                 </div>
                 <div>
                     <input type="checkbox" id="ipva_pago" class="input_checkbox" name="ipva_pago" value="true"
-                        th:field="*{ipva_pago}">
+                        th:checked="*{ipva_pago}">
                     <label for="ipva_pago">IPVA Pago</label>
                 </div>
                 <div>
                     <input type="checkbox" id="camera_de_re" class="input_checkbox" name="camera_de_re" value="true"
-                        th:field="*{camera_de_re}">
+                        th:checked="*{camera_de_re}">
                     <label for="camera_de_re">Câmera de Ré</label>
                 </div>
                 <div>
                     <input type="checkbox" id="sensor_de_re" class="input_checkbox" name="sensor_de_re" value="true"
-                        th:field="*{sensor_de_re}">
+                        th:checked="*{sensor_de_re}">
                     <label for="sensor_de_re">Sensor de Ré</label>
                 </div>
                 <div>
                     <input type="checkbox" id="trava_eletrica" class="input_checkbox" name="trava_eletrica" value="true"
-                        th:field="*{trava_eletrica}">
+                        th:checked="*{trava_eletrica}">
                     <label for="trava_eletrica">Trava Elétrica</label>
                 </div>
                 <div>
                     <input type="checkbox" id="vidro_eletrico" class="input_checkbox" name="vidro_eletrico" value="true"
-                        th:field="*{vidro_eletrico}">
+                        th:checked="*{vidro_eletrico}">
                     <label for="vidro_eletrico">Vidro Elétrico</label>
                 </div>
                 <div>
                     <input type="checkbox" id="ar_condicionado" class="input_checkbox" name="ar_condicionado"
-                        value="true" th:field="*{ar_condicionado}">
+                        value="true" th:checked="*{ar_condicionado}">
                     <label for="ar_condicionado">Ar Condicionado</label>
                 </div>
                 <div>
                     <input type="checkbox" id="air_bag" class="input_checkbox" name="air_bag" value="true"
-                        th:field="*{air_bag}">
+                        th:checked="*{air_bag}">
                     <label for="air_bag">Air Bag</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="som" class="input_checkbox" name="som" value="true" th:field="*{som}">
+                    <input type="checkbox" id="som" class="input_checkbox" name="som" value="true" th:checked="*{som}">
                     <label for="som">Som</label>
                 </div>
             </section>
 
             <section class="action-buttons">
                 <button type="button" onclick="history.back()">Voltar</button>
-                <button type="submit" id="button-confirm">Avançar</button>
+                <button type="submit" id="button-confirm">Salvar</button>
             </section>
         </form>
-
-    </main>
-    <!--<script src="/js/insert-script.js"></script>-->
 
     </main>
 </body>

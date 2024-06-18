@@ -18,23 +18,30 @@
     </header>
     <form th:action="@{/add-owner}" th:object="${proprietario}" method="post">
         <div class="div-form">
-            <label for="nome">Nome</label>
+            <label for="nome">Nome Completo:</label>
             <input type="text" id="nome" th:field="*{nome}" placeholder="João da Silva" required>
-            <label for="cpf">CPF</label>
-            <input type="text" id="cpf" th:field="*{cpf}" placeholder="999.999.999-99" required>
-            <label for="rg">RG</label>
-            <input type="text" id="rg" th:field="*{rg}" placeholder="99.999.999-0" required>
-            <label for="dataDeNascimento">Nascimento</label>
-            <input type="date" id="dataDeNascimento" th:field="*{dataDeNascimento}" required>
-            <label for="numero">Telefone</label>
-            <input type="text" id="numero" th:field="*{numero}" placeholder="99.999.999-0" required>
 
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" th:field="*{cpf}" placeholder="123.456.789-00" required>
+
+            <label for="rg">RG:</label>
+            <input type="text" id="rg" th:field="*{rg}" placeholder="12.345.678-90" required>
+
+            <label for="dataDeNascimento">Data de Nascimento:</label>
+            <input type="date" id="dataDeNascimento" th:field="*{dataDeNascimento}" required>
+
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" th:field="*{numero}" placeholder="(99) 9 9999-9999" required>
+
+            <section class="action-buttons">
+                <button type="button" onclick="history.back()">Voltar</button>
+                <button type="submit" id="button-confirm">Avançar</button>
+            </section>
         </div>
-        <section class="action-buttons">
-            <button type="button">Voltar</button>
-            <button type="submit" id="button-confirm">Avançar</button>
-        </section>
     </form>
+
+    </form>
+
 </body>
 
 </html>
